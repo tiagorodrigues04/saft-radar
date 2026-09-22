@@ -1,0 +1,22 @@
+# Dados reais de clientes — NUNCA entram no repositório.
+dados/
+*.xml
+*.xml.gz
+*.zip
+!docs/**
+
+# Resultados gerados
+saidas/
+demo/saft/
+demo/raio-x.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Sistema
+.DS_Store
