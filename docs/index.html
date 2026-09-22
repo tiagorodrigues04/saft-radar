@@ -1,0 +1,334 @@
+<title>Raio-X Distribuidora Alimentar Vale do Mondego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --plano:       #eef0f4;
+  --superficie:  #ffffff;
+  --superficie2: #f7f8fa;
+  --tinta:       #12161c;
+  --tinta2:      #4d586a;
+  --tinta3:      #7b8798;
+  --fio:         #e0e4eb;
+  --fio-forte:   #c7ced9;
+  --serie-1:     #2a78d6;
+  --serie-2:     #eb6834;
+  --serie-1-tenue: rgba(42,120,214,.14);
+  --bom:         #0ca30c;
+  --aviso:       #fab219;
+  --serio:       #ec835a;
+  --critico:     #d03b3b;
+  --bom-tinta:   #067006;
+  --critico-tinta: #a92b2b;
+  --sombra:      0 1px 2px rgba(18,22,28,.06), 0 8px 24px -16px rgba(18,22,28,.24);
+  --raio:        10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --plano:       #0d1015;
+    --superficie:  #171b22;
+    --superficie2: #1d222b;
+    --tinta:       #f2f4f7;
+    --tinta2:      #aab5c3;
+    --tinta3:      #7f8b9a;
+    --fio:         #262c36;
+    --fio-forte:   #3a4250;
+    --serie-1:     #3987e5;
+    --serie-2:     #d95926;
+    --serie-1-tenue: rgba(57,135,229,.18);
+    --bom-tinta:   #35c035;
+    --critico-tinta: #e06a6a;
+    --sombra:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"] {
+  --plano:       #0d1015;
+  --superficie:  #171b22;
+  --superficie2: #1d222b;
+  --tinta:       #f2f4f7;
+  --tinta2:      #aab5c3;
+  --tinta3:      #7f8b9a;
+  --fio:         #262c36;
+  --fio-forte:   #3a4250;
+  --serie-1:     #3987e5;
+  --serie-2:     #d95926;
+  --serie-1-tenue: rgba(57,135,229,.18);
+  --bom-tinta:   #35c035;
+  --critico-tinta: #e06a6a;
+  --sombra:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--plano);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+.folha { max-width: 1060px; margin: 0 auto; padding: 0 16px; padding-block: 28px 56px; }
+h1, h2, h3 { font-family: Bitter, Georgia, "Times New Roman", serif; text-wrap: balance;
+             margin: 0; font-weight: 600; letter-spacing: -.01em; }
+h1 { font-size: clamp(1.6rem, 4.2vw, 2.15rem); line-height: 1.18; }
+h2 { font-size: 1.16rem; }
+h3 { font-size: 1rem; }
+p { margin: 0; }
+a { color: var(--serie-1); }
+
+/* ---------------------------------------------------------------- cabeçalho */
+.masthead { border-bottom: 2px solid var(--tinta); padding-bottom: 18px; margin-bottom: 26px; }
+.sobrescrito { font-size: .72rem; font-weight: 600; letter-spacing: .13em;
+               text-transform: uppercase; color: var(--serie-1); margin-bottom: 8px; }
+.identificacao { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px;
+                 font-size: .82rem; color: var(--tinta2); }
+.identificacao b { color: var(--tinta); font-weight: 600; }
+.selo { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px;
+        padding: 5px 11px; border: 1px solid var(--fio); border-radius: 999px;
+        background: var(--superficie); font-size: .76rem; color: var(--tinta2); }
+.selo svg { flex: none; }
+
+/* -------------------------------------------------------------------- KPIs */
+.kpis { display: grid; gap: 1px; background: var(--fio); border: 1px solid var(--fio);
+        border-radius: var(--raio); overflow: hidden; margin-bottom: 34px;
+        grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); }
+.kpi { background: var(--superficie); padding: 15px 16px 16px; }
+.kpi .nome { font-size: .73rem; font-weight: 600; letter-spacing: .07em;
+             text-transform: uppercase; color: var(--tinta3); }
+.kpi .valor { font-family: Bitter, Georgia, serif; font-size: 1.62rem; font-weight: 600;
+              line-height: 1.15; margin-top: 7px; }
+.kpi .nota { font-size: .79rem; color: var(--tinta2); margin-top: 3px; }
+.delta { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
+.delta.sobe { color: var(--bom-tinta); }
+.delta.desce { color: var(--critico-tinta); }
+
+/* ----------------------------------------------------------------- secções */
+section { margin-bottom: 34px; }
+.titulo-seccao { display: flex; align-items: baseline; justify-content: space-between;
+                 gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.titulo-seccao .contexto { font-size: .8rem; color: var(--tinta3); }
+.cartao { background: var(--superficie); border: 1px solid var(--fio);
+          border-radius: var(--raio); box-shadow: var(--sombra); }
+.cartao.enchido { padding: 18px; }
+
+/* ------------------------------------------------------------------ achados */
+.achados { display: flex; flex-direction: column; gap: 10px; }
+.achado { display: flex; align-items: flex-start; gap: 13px;
+          background: var(--superficie); border: 1px solid var(--fio);
+          border-left: 4px solid var(--fio-forte); border-radius: var(--raio);
+          padding: 15px 17px; box-shadow: var(--sombra); }
+.achado.alerta  { border-left-color: var(--critico); }
+.achado.positivo{ border-left-color: var(--bom); }
+.achado.info    { border-left-color: var(--serie-1); }
+.achado .icone { flex: none; margin-top: 3px; }
+.achado .conteudo { min-width: 0; flex: 1; }
+.achado .etiqueta { font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+                    text-transform: uppercase; color: var(--tinta3); }
+.achado.alerta .etiqueta { color: var(--critico-tinta); }
+.achado.positivo .etiqueta { color: var(--bom-tinta); }
+.achado h3 { margin: 2px 0 5px; }
+.achado .corpo { color: var(--tinta2); font-size: .92rem; }
+.achado .acao { margin-top: 9px; padding-top: 9px; border-top: 1px dashed var(--fio);
+                font-size: .89rem; }
+.achado .acao b { font-weight: 600; }
+
+/* ------------------------------------------------------------------ tabelas */
+.rolar { overflow-x: auto; max-width: 100%; }
+.cartao, .duas > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th { text-align: left; font-weight: 600; font-size: .72rem; letter-spacing: .07em;
+     text-transform: uppercase; color: var(--tinta3); padding: 9px 12px;
+     border-bottom: 1px solid var(--fio-forte); white-space: nowrap; }
+td { padding: 9px 12px; border-bottom: 1px solid var(--fio); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--superficie2); }
+.num { text-align: right; white-space: nowrap; }
+.nome-cliente { font-weight: 500; }
+.chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px;
+        border-radius: 999px; font-size: .74rem; font-weight: 600; white-space: nowrap;
+        border: 1px solid var(--fio-forte); color: var(--tinta2); }
+.chip.perdido { border-color: var(--critico); color: var(--critico-tinta); }
+.chip.risco { border-color: var(--serio); color: var(--tinta); }
+.chip.abrandar { border-color: var(--aviso); color: var(--tinta); }
+.chip .bolha { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.chip.perdido .bolha { background: var(--critico); }
+.chip.risco .bolha { background: var(--serio); }
+.chip.abrandar .bolha { background: var(--aviso); }
+
+/* ------------------------------------------------------------------ gráficos */
+.moldura-grafico { overflow-x: auto; overflow-y: hidden; margin: 0 -4px; padding: 0 4px; }
+.grafico { width: 100%; height: auto; display: block; min-width: 520px; }
+.grelha { stroke: var(--fio); stroke-width: 1; }
+.base { stroke: var(--fio-forte); stroke-width: 1; }
+.eixo { fill: var(--tinta3); font-size: 11px; font-family: inherit; }
+.eixo.fraco { fill: var(--tinta3); opacity: .75; font-size: 10px; }
+.meio { text-anchor: middle; }
+.fim { text-anchor: end; }
+.inicio { text-anchor: start; }
+.fim-dir { text-anchor: end; }
+.rotulo { fill: var(--tinta); font-size: 12px; font-weight: 600; font-family: inherit; }
+.rotulo.fraco { fill: var(--tinta2); font-weight: 500; }
+.linha { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.linha.principal { stroke: var(--serie-1); stroke-width: 2; }
+.linha.media { stroke: var(--tinta3); stroke-width: 2; stroke-dasharray: 5 4; }
+.area { fill: var(--serie-1-tenue); stroke: none; }
+.ponto-fim { fill: var(--serie-1); stroke: var(--superficie); stroke-width: 2; }
+.barra.sobe { fill: var(--serie-1); }
+.barra.desce { fill: var(--critico); }
+.barra.serie-1 { fill: var(--serie-1); }
+.barra.serie-2 { fill: var(--serie-2); }
+.alvo { cursor: pointer; }
+rect.alvo:not(.barra) { fill: transparent; }
+rect.alvo:hover { opacity: .82; }
+.rotulo.dentro { fill: #fff; }
+.legenda { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px;
+           font-size: .8rem; color: var(--tinta2); }
+.legenda span { display: inline-flex; align-items: center; gap: 7px; }
+.marca { width: 13px; height: 3px; border-radius: 2px; flex: none; }
+.marca.s1 { background: var(--serie-1); }
+.marca.s2 { background: var(--serie-2); }
+.marca.critico { background: var(--critico); }
+.marca.tracejado { background: repeating-linear-gradient(90deg,
+                   var(--tinta3) 0 5px, transparent 5px 9px); }
+
+details { margin-top: 12px; }
+summary { cursor: pointer; font-size: .82rem; color: var(--tinta2); width: fit-content; }
+summary:focus-visible { outline: 2px solid var(--serie-1); outline-offset: 3px; }
+
+/* --------------------------------------------------------------------- balão */
+#balao { position: fixed; z-index: 40; pointer-events: none; opacity: 0;
+         transition: opacity .12s; background: var(--superficie);
+         border: 1px solid var(--fio-forte); border-radius: 8px; padding: 8px 11px;
+         box-shadow: 0 8px 28px -10px rgba(0,0,0,.45); font-size: .82rem;
+         min-width: 132px; }
+#balao .cabeca { font-weight: 700; margin-bottom: 4px; }
+#balao .par { display: flex; justify-content: space-between; gap: 16px;
+              color: var(--tinta2); }
+#balao .par b { color: var(--tinta); font-weight: 600; }
+
+.duas { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 880px) { .duas.lado-a-lado { grid-template-columns: 1fr 1fr; } }
+
+.metodo { font-size: .82rem; color: var(--tinta2); border-top: 1px solid var(--fio);
+          padding-top: 18px; margin-top: 42px; }
+.metodo h3 { font-size: .9rem; margin-bottom: 7px; color: var(--tinta); }
+.metodo ul { margin: 0; padding-left: 18px; }
+.metodo li { margin-bottom: 4px; }
+.assinatura { margin-top: 18px; font-size: .8rem; color: var(--tinta3); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+@media print {
+  body { background: #fff; }
+  .cartao, .achado { box-shadow: none; break-inside: avoid; }
+  #balao { display: none; }
+}
+</style>
+<div class="folha">
+<header class="masthead">
+<div class="sobrescrito">Raio-X mensal de vendas</div>
+<h1>Distribuidora Alimentar Vale do Mondego, Lda</h1>
+<div class="identificacao"><span>Mês em análise <b>agosto de 2026</b></span><span>NIF <b>504827391</b></span><span>Base <b>SAF-T 1.04_01</b>, 24 meses</span><span>Emitido a <b>22/09/2026</b></span></div>
+<div class="selo"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m5.1 8.2 2 2 3.8-4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Totais conferidos com o cabeçalho de cada ficheiro SAF-T. Documentos anulados excluídos; notas de crédito abatidas.</div>
+</header>
+<div class="kpis">
+<div class="kpi"><div class="nome">Faturação do mês</div><div class="valor">97 936 €</div><div class="nota"><span class="delta desce">▼ -1,4 %</span><span class="nota"> vs. ano anterior</span></div></div>
+<div class="kpi"><div class="nome">Últimos 12 meses</div><div class="valor">1 064 682 €</div><div class="nota"><span class="delta desce">▼ -1,9 %</span><span class="nota"> vs. 12 meses anteriores</span></div></div>
+<div class="kpi"><div class="nome">Clientes que compraram</div><div class="valor">114</div><div class="nota"><span class="delta desce">▼ -11,6 %</span><span class="nota"> vs. ano anterior</span></div></div>
+<div class="kpi"><div class="nome">Valor por encomenda</div><div class="valor">266 €</div><div class="nota">368 encomendas no mês</div></div>
+<div class="kpi"><div class="nome">Devoluções</div><div class="valor">625 €</div><div class="nota">0,6 % das vendas do mês</div></div>
+</div>
+<section>
+<div class="titulo-seccao"><h2>O que fazer este mês</h2><span class="contexto">Por ordem de dinheiro em jogo</span></div>
+<div class="achados">
+<article class="achado alerta"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 15 14H1L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.6" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">A corrigir</div><h3>Faturação de agosto de 2026: 97 936 €</h3><div class="corpo">caiu 1,4 % face ao mesmo mês do ano passado (99 375 €). Nos últimos 12 meses somou 1 064 682 €.</div></div></article>
+<article class="achado alerta"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 15 14H1L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.6" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">A corrigir</div><h3>20 clientes deixaram de comprar — 124 204 €/ano em risco</h3><div class="corpo">Compravam com regularidade e estão há muito tempo sem encomendar. Os três maiores: Cantinho Velho Unipessoal Lda, Jardim do Norte Lda, Pátio da Serra Lda.</div><div class="acao"><b>Ação:</b> Ligar esta semana aos 10 primeiros da lista. Recuperar metade vale 62 102 € por ano.</div></div></article>
+<article class="achado alerta"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 15 14H1L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.6" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">A corrigir</div><h3>58 clientes a comprar menos — 77 484 € no trimestre</h3><div class="corpo">Comparação dos últimos 3 meses com os mesmos 3 meses do ano passado, para não confundir com a sazonalidade. Maiores quedas: Cantinho Velho Unipessoal Lda 22 149 €; Jardim do Norte Lda 6 482 €; Oliveira Novo 3 687 €.</div><div class="acao"><b>Ação:</b> Visitar os 5 primeiros e perceber se foi preço, rutura ou concorrência.</div></div></article>
+<article class="achado alerta"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 15 14H1L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.6" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">A corrigir</div><h3>Descartáveis e Higiene: -17 % em 12 meses</h3><div class="corpo">Passou de 156 640 € para 129 755 €, menos 26 885 €. É 12 % da faturação.</div><div class="acao"><b>Ação:</b> Ver se é perda de clientes ou de quota dentro dos mesmos clientes.</div></div></article>
+<article class="achado positivo"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m5.1 8.2 2 2 3.8-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="conteudo"><div class="etiqueta">A aproveitar</div><h3>Padaria e Pastelaria: +21 % em 12 meses</h3><div class="corpo">Mais 31 605 € do que no período anterior. Já pesa 17 % da faturação.</div><div class="acao"><b>Ação:</b> Oferecer esta categoria aos clientes que ainda não a compram.</div></div></article>
+<article class="achado alerta"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 15 14H1L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.6" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">A corrigir</div><h3>Está a vender menos quantidade e a segurar com preço</h3><div class="corpo">Nos últimos 12 meses a subida de preços trouxe 27 596 €, mas a quebra de quantidades tirou 79 148 €. O preço já não chega para compensar o volume perdido.</div><div class="acao"><b>Ação:</b> Confirmar se há clientes a comprar o mesmo produto a outro fornecedor.</div></div></article>
+<article class="achado info"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7.2v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="4.8" r="0.95" fill="currentColor"/></svg></span><div class="conteudo"><div class="etiqueta">Contexto</div><h3>Os 10 maiores clientes são 33 % da faturação</h3><div class="corpo">22 clientes fazem metade das vendas e 60 fazem 80%. O maior sozinho vale 8,0 %.</div></div></article>
+<article class="achado positivo"><span class="icone"><svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m5.1 8.2 2 2 3.8-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="conteudo"><div class="etiqueta">A aproveitar</div><h3>5 clientes novos em 12 meses</h3><div class="corpo">Valem 13 632 € desde a primeira compra. O maior é Casa da Serra Unipessoal Lda.</div><div class="acao"><b>Ação:</b> Confirmar se os novos do último trimestre já repetiram encomenda.</div></div></article>
+</div></section>
+<section>
+<div class="titulo-seccao"><h2>Evolução mensal</h2><span class="contexto">Faturação líquida de IVA, sem documentos anulados</span></div>
+<div class="cartao enchido">
+<div class="moldura-grafico"><svg viewBox="0 0 900 330" class="grafico" role="img" aria-label="Faturação mensal dos últimos 24 meses"><line x1="62" y1="288.0" x2="884" y2="288.0" class="grelha"/><text x="52" y="292.0" class="eixo fim">0k</text><line x1="62" y1="168.2" x2="884" y2="168.2" class="grelha"/><text x="52" y="172.2" class="eixo fim">50k</text><line x1="62" y1="48.3" x2="884" y2="48.3" class="grelha"/><text x="52" y="52.3" class="eixo fim">100k</text><line x1="62" y1="288" x2="884" y2="288" class="base"/><text x="62.0" y="308" class="eixo meio">set</text><text x="62.0" y="322" class="eixo meio fraco">2024</text><text x="169.2" y="308" class="eixo meio">dez</text><text x="276.4" y="308" class="eixo meio">mar</text><text x="383.7" y="308" class="eixo meio">jun</text><text x="490.9" y="308" class="eixo meio">set</text><text x="598.1" y="308" class="eixo meio">dez</text><text x="705.3" y="308" class="eixo meio">mar</text><text x="812.5" y="308" class="eixo meio">jun</text><text x="884.0" y="308" class="eixo meio">ago</text><polygon points="62.0,288 62.0,74.1 97.7,78.6 133.5,84.8 169.2,65.2 205.0,88.7 240.7,76.7 276.4,78.2 312.2,73.0 347.9,68.6 383.7,65.4 419.4,52.4 455.1,49.8 490.9,74.5 526.6,89.4 562.3,79.9 598.1,63.9 633.8,92.6 669.6,90.3 705.3,77.8 741.0,81.7 776.8,73.1 812.5,71.0 848.3,56.6 884.0,53.3 884.0,288" class="area"/><polyline points="62.0,74.1 97.7,76.3 133.5,79.2 169.2,76.2 205.0,79.6 240.7,76.9 276.4,81.2 312.2,76.0 347.9,73.3 383.7,69.0 419.4,62.1 455.1,55.8 490.9,58.9 526.6,71.3 562.3,81.3 598.1,77.8 633.8,78.8 669.6,82.3 705.3,86.9 741.0,83.3 776.8,77.6 812.5,75.3 848.3,66.9 884.0,60.3" class="linha media"/><polyline points="62.0,74.1 97.7,78.6 133.5,84.8 169.2,65.2 205.0,88.7 240.7,76.7 276.4,78.2 312.2,73.0 347.9,68.6 383.7,65.4 419.4,52.4 455.1,49.8 490.9,74.5 526.6,89.4 562.3,79.9 598.1,63.9 633.8,92.6 669.6,90.3 705.3,77.8 741.0,81.7 776.8,73.1 812.5,71.0 848.3,56.6 884.0,53.3" class="linha principal"/><circle cx="884.0" cy="53.3" r="5" class="ponto-fim"/><text x="884.0" y="39.3" class="rotulo fim-dir">97,9k €</text><rect x="48.0" y="26" width="28" height="262" class="alvo" data-titulo="set 24" data-linhas="Faturação|89 259 €||Média 3 meses|89 259 €"/><rect x="83.7" y="26" width="28" height="262" class="alvo" data-titulo="out 24" data-linhas="Faturação|87 358 €||Média 3 meses|88 309 €"/><rect x="119.5" y="26" width="28" height="262" class="alvo" data-titulo="nov 24" data-linhas="Faturação|84 782 €||Média 3 meses|87 133 €"/><rect x="155.2" y="26" width="28" height="262" class="alvo" data-titulo="dez 24" data-linhas="Faturação|92 939 €||Média 3 meses|88 360 €"/><rect x="191.0" y="26" width="28" height="262" class="alvo" data-titulo="jan 25" data-linhas="Faturação|83 139 €||Média 3 meses|86 953 €"/><rect x="226.7" y="26" width="28" height="262" class="alvo" data-titulo="fev 25" data-linhas="Faturação|88 164 €||Média 3 meses|88 081 €"/><rect x="262.4" y="26" width="28" height="262" class="alvo" data-titulo="mar 25" data-linhas="Faturação|87 537 €||Média 3 meses|86 280 €"/><rect x="298.2" y="26" width="28" height="262" class="alvo" data-titulo="abr 25" data-linhas="Faturação|89 687 €||Média 3 meses|88 463 €"/><rect x="333.9" y="26" width="28" height="262" class="alvo" data-titulo="mai 25" data-linhas="Faturação|91 529 €||Média 3 meses|89 584 €"/><rect x="369.7" y="26" width="28" height="262" class="alvo" data-titulo="jun 25" data-linhas="Faturação|92 888 €||Média 3 meses|91 368 €"/><rect x="405.4" y="26" width="28" height="262" class="alvo" data-titulo="jul 25" data-linhas="Faturação|98 312 €||Média 3 meses|94 243 €"/><rect x="441.1" y="26" width="28" height="262" class="alvo" data-titulo="ago 25" data-linhas="Faturação|99 375 €||Média 3 meses|96 858 €"/><rect x="476.9" y="26" width="28" height="262" class="alvo" data-titulo="set 25" data-linhas="Faturação|89 079 €||Média 3 meses|95 589 €"/><rect x="512.6" y="26" width="28" height="262" class="alvo" data-titulo="out 25" data-linhas="Faturação|82 843 €||Média 3 meses|90 432 €"/><rect x="548.3" y="26" width="28" height="262" class="alvo" data-titulo="nov 25" data-linhas="Faturação|86 805 €||Média 3 meses|86 242 €"/><rect x="584.1" y="26" width="28" height="262" class="alvo" data-titulo="dez 25" data-linhas="Faturação|93 505 €||Média 3 meses|87 718 €"/><rect x="619.8" y="26" width="28" height="262" class="alvo" data-titulo="jan 26" data-linhas="Faturação|81 516 €||Média 3 meses|87 275 €"/><rect x="655.6" y="26" width="28" height="262" class="alvo" data-titulo="fev 26" data-linhas="Faturação|82 492 €||Média 3 meses|85 837 €"/><rect x="691.3" y="26" width="28" height="262" class="alvo" data-titulo="mar 26" data-linhas="Faturação|87 695 €||Média 3 meses|83 901 €"/><rect x="727.0" y="26" width="28" height="262" class="alvo" data-titulo="abr 26" data-linhas="Faturação|86 054 €||Média 3 meses|85 414 €"/><rect x="762.8" y="26" width="28" height="262" class="alvo" data-titulo="mai 26" data-linhas="Faturação|89 660 €||Média 3 meses|87 803 €"/><rect x="798.5" y="26" width="28" height="262" class="alvo" data-titulo="jun 26" data-linhas="Faturação|90 548 €||Média 3 meses|88 754 €"/><rect x="834.3" y="26" width="28" height="262" class="alvo" data-titulo="jul 26" data-linhas="Faturação|96 550 €||Média 3 meses|92 252 €"/><rect x="870.0" y="26" width="28" height="262" class="alvo" data-titulo="ago 26" data-linhas="Faturação|97 936 €||Média 3 meses|95 011 €"/></svg></div>
+<div class="legenda"><span><i class="marca s1"></i>Faturação do mês</span><span><i class="marca tracejado"></i>Média dos últimos 3 meses</span></div>
+<details><summary>Ver os números mês a mês</summary><div class="rolar"><table><thead><tr><th class="">Mês</th><th class="num">Faturação</th><th class="num">Encomendas</th><th class="num">Clientes</th><th class="num">Por encomenda</th><th class="num">vs. ano anterior</th></tr></thead><tbody><tr><td class="">Setembro de 2024</td><td class="num">89 259 €</td><td class="num">404</td><td class="num">134</td><td class="num">221 €</td><td class="num">—</td></tr><tr><td class="">Outubro de 2024</td><td class="num">87 358 €</td><td class="num">399</td><td class="num">138</td><td class="num">219 €</td><td class="num">—</td></tr><tr><td class="">Novembro de 2024</td><td class="num">84 782 €</td><td class="num">398</td><td class="num">138</td><td class="num">213 €</td><td class="num">—</td></tr><tr><td class="">Dezembro de 2024</td><td class="num">92 939 €</td><td class="num">393</td><td class="num">138</td><td class="num">236 €</td><td class="num">—</td></tr><tr><td class="">Janeiro de 2025</td><td class="num">83 139 €</td><td class="num">405</td><td class="num">136</td><td class="num">205 €</td><td class="num">—</td></tr><tr><td class="">Fevereiro de 2025</td><td class="num">88 164 €</td><td class="num">420</td><td class="num">138</td><td class="num">210 €</td><td class="num">—</td></tr><tr><td class="">Março de 2025</td><td class="num">87 537 €</td><td class="num">401</td><td class="num">138</td><td class="num">218 €</td><td class="num">—</td></tr><tr><td class="">Abril de 2025</td><td class="num">89 687 €</td><td class="num">396</td><td class="num">136</td><td class="num">226 €</td><td class="num">—</td></tr><tr><td class="">Maio de 2025</td><td class="num">91 529 €</td><td class="num">397</td><td class="num">137</td><td class="num">231 €</td><td class="num">—</td></tr><tr><td class="">Junho de 2025</td><td class="num">92 888 €</td><td class="num">404</td><td class="num">137</td><td class="num">230 €</td><td class="num">—</td></tr><tr><td class="">Julho de 2025</td><td class="num">98 312 €</td><td class="num">400</td><td class="num">135</td><td class="num">246 €</td><td class="num">—</td></tr><tr><td class="">Agosto de 2025</td><td class="num">99 375 €</td><td class="num">385</td><td class="num">129</td><td class="num">258 €</td><td class="num">—</td></tr><tr><td class="">Setembro de 2025</td><td class="num">89 079 €</td><td class="num">393</td><td class="num">133</td><td class="num">227 €</td><td class="num">-0,2 %</td></tr><tr><td class="">Outubro de 2025</td><td class="num">82 843 €</td><td class="num">372</td><td class="num">128</td><td class="num">223 €</td><td class="num">-5,2 %</td></tr><tr><td class="">Novembro de 2025</td><td class="num">86 805 €</td><td class="num">376</td><td class="num">130</td><td class="num">231 €</td><td class="num">+2,4 %</td></tr><tr><td class="">Dezembro de 2025</td><td class="num">93 505 €</td><td class="num">373</td><td class="num">129</td><td class="num">251 €</td><td class="num">+0,6 %</td></tr><tr><td class="">Janeiro de 2026</td><td class="num">81 516 €</td><td class="num">381</td><td class="num">127</td><td class="num">214 €</td><td class="num">-2,0 %</td></tr><tr><td class="">Fevereiro de 2026</td><td class="num">82 492 €</td><td class="num">370</td><td class="num">126</td><td class="num">223 €</td><td class="num">-6,4 %</td></tr><tr><td class="">Março de 2026</td><td class="num">87 695 €</td><td class="num">387</td><td class="num">123</td><td class="num">227 €</td><td class="num">+0,2 %</td></tr><tr><td class="">Abril de 2026</td><td class="num">86 054 €</td><td class="num">384</td><td class="num">127</td><td class="num">224 €</td><td class="num">-4,1 %</td></tr><tr><td class="">Maio de 2026</td><td class="num">89 660 €</td><td class="num">383</td><td class="num">122</td><td class="num">234 €</td><td class="num">-2,0 %</td></tr><tr><td class="">Junho de 2026</td><td class="num">90 548 €</td><td class="num">371</td><td class="num">120</td><td class="num">244 €</td><td class="num">-2,5 %</td></tr><tr><td class="">Julho de 2026</td><td class="num">96 550 €</td><td class="num">357</td><td class="num">116</td><td class="num">270 €</td><td class="num">-1,8 %</td></tr><tr><td class="">Agosto de 2026</td><td class="num">97 936 €</td><td class="num">368</td><td class="num">114</td><td class="num">266 €</td><td class="num">-1,4 %</td></tr></tbody></table></div></details>
+</div></section>
+<section>
+<div class="titulo-seccao"><h2>Onde ganhou e onde perdeu</h2><span class="contexto">Últimos 12 meses vs. os 12 anteriores</span></div>
+<div class="cartao enchido">
+<div class="moldura-grafico"><svg viewBox="0 0 900 300" class="grafico" role="img" aria-label="Variação da faturação por categoria em 12 meses"><line x1="351.3" y1="10" x2="351.3" y2="270" class="grelha"/><text x="351.3" y="290" class="eixo meio">-20k</text><line x1="529.0" y1="10" x2="529.0" y2="270" class="base"/><text x="529.0" y="290" class="eixo meio">0</text><line x1="706.7" y1="10" x2="706.7" y2="270" class="grelha"/><text x="706.7" y="290" class="eixo meio">20k</text><rect x="383.7" y="10" width="145.3" height="30" rx="4" class="barra desce alvo" data-titulo="Congelados" data-linhas="Variação|-16 360 €||Últimos 12 meses|212 392 €||12 meses antes|228 751 €"/><text x="166" y="29" class="rotulo fim">Congelados</text><text x="391.7" y="29" class="rotulo inicio dentro">-16 360 €</text><rect x="504.9" y="56" width="24.1" height="30" rx="4" class="barra desce alvo" data-titulo="Mercearia" data-linhas="Variação|-2 714 €||Últimos 12 meses|202 360 €||12 meses antes|205 074 €"/><text x="166" y="75" class="rotulo fim">Mercearia</text><text x="496.9" y="75" class="rotulo fim">-2 714 €</text><rect x="529.0" y="102" width="13.7" height="30" rx="4" class="barra sobe alvo" data-titulo="Laticínios" data-linhas="Variação|1 539 €||Últimos 12 meses|188 153 €||12 meses antes|186 614 €"/><text x="166" y="121" class="rotulo fim">Laticínios</text><text x="550.7" y="121" class="rotulo inicio">1 539 €</text><rect x="529.0" y="148" width="280.8" height="30" rx="4" class="barra sobe alvo" data-titulo="Padaria e Pastelaria" data-linhas="Variação|31 605 €||Últimos 12 meses|179 489 €||12 meses antes|147 884 €"/><text x="166" y="167" class="rotulo fim">Padaria e Pastelaria</text><text x="801.8" y="167" class="rotulo fim dentro">31 605 €</text><rect x="462.6" y="194" width="66.4" height="30" rx="4" class="barra desce alvo" data-titulo="Bebidas" data-linhas="Variação|-7 472 €||Últimos 12 meses|152 534 €||12 meses antes|160 006 €"/><text x="166" y="213" class="rotulo fim">Bebidas</text><text x="454.6" y="213" class="rotulo fim">-7 472 €</text><rect x="290.1" y="240" width="238.9" height="30" rx="4" class="barra desce alvo" data-titulo="Descartáveis e Higiene" data-linhas="Variação|-26 885 €||Últimos 12 meses|129 755 €||12 meses antes|156 640 €"/><text x="166" y="259" class="rotulo fim">Descartáveis e Higiene</text><text x="298.1" y="259" class="rotulo inicio dentro">-26 885 €</text></svg></div>
+<div class="legenda"><span><i class="marca s1"></i>Cresceu</span><span><i class="marca critico"></i>Caiu</span></div>
+<details><summary>Ver a tabela das categorias</summary><div class="rolar"><table><thead><tr><th class="">Categoria</th><th class="num">Últimos 12 meses</th><th class="num">12 meses antes</th><th class="num">Diferença</th><th class="num">Variação</th><th class="num">Peso</th></tr></thead><tbody><tr><td class="">Congelados</td><td class="num">212 392 €</td><td class="num">228 751 €</td><td class="num">-16 360 €</td><td class="num">-7,2 %</td><td class="num">19,9 %</td></tr><tr><td class="">Mercearia</td><td class="num">202 360 €</td><td class="num">205 074 €</td><td class="num">-2 714 €</td><td class="num">-1,3 %</td><td class="num">19,0 %</td></tr><tr><td class="">Laticínios</td><td class="num">188 153 €</td><td class="num">186 614 €</td><td class="num">1 539 €</td><td class="num">+0,8 %</td><td class="num">17,7 %</td></tr><tr><td class="">Padaria e Pastelaria</td><td class="num">179 489 €</td><td class="num">147 884 €</td><td class="num">31 605 €</td><td class="num">+21,4 %</td><td class="num">16,9 %</td></tr><tr><td class="">Bebidas</td><td class="num">152 534 €</td><td class="num">160 006 €</td><td class="num">-7 472 €</td><td class="num">-4,7 %</td><td class="num">14,3 %</td></tr><tr><td class="">Descartáveis e Higiene</td><td class="num">129 755 €</td><td class="num">156 640 €</td><td class="num">-26 885 €</td><td class="num">-17,2 %</td><td class="num">12,2 %</td></tr></tbody></table></div></details>
+</div></section>
+<section>
+<div class="titulo-seccao"><h2>Foi o preço ou foi a quantidade?</h2><span class="contexto">Quanto da variação veio de cada um</span></div>
+<div class="cartao enchido">
+<div class="moldura-grafico"><svg viewBox="0 0 900 342" class="grafico" role="img" aria-label="Efeito do volume e do preço por categoria"><line x1="350.7" y1="10" x2="350.7" y2="312" class="grelha"/><text x="350.7" y="332" class="eixo meio">-25k</text><line x1="529.0" y1="10" x2="529.0" y2="312" class="base"/><text x="529.0" y="332" class="eixo meio">0</text><line x1="707.3" y1="10" x2="707.3" y2="312" class="grelha"/><text x="707.3" y="332" class="eixo meio">25k</text><text x="166" y="30" class="rotulo fim">Descartáveis e Higiene</text><rect x="318.0" y="10" width="211.0" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Descartáveis e Higiene" data-linhas="Efeito da quantidade|-29 580 €"/><rect x="529.0" y="27" width="15.0" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Descartáveis e Higiene" data-linhas="Efeito do preço|2 105 €"/><text x="310.0" y="30" class="rotulo fraco fim">-29 580 €</text><text x="166" y="84" class="rotulo fim">Congelados</text><rect x="313.2" y="64" width="215.8" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Congelados" data-linhas="Efeito da quantidade|-30 253 €"/><rect x="529.0" y="81" width="46.7" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Congelados" data-linhas="Efeito do preço|6 552 €"/><text x="305.2" y="84" class="rotulo fraco fim">-30 253 €</text><text x="166" y="138" class="rotulo fim">Bebidas</text><rect x="286.9" y="118" width="242.1" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Bebidas" data-linhas="Efeito da quantidade|-33 939 €"/><rect x="529.0" y="135" width="56.4" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Bebidas" data-linhas="Efeito do preço|7 906 €"/><text x="278.9" y="138" class="rotulo fraco fim">-33 939 €</text><text x="166" y="192" class="rotulo fim">Mercearia</text><rect x="497.0" y="172" width="32.0" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Mercearia" data-linhas="Efeito da quantidade|-4 491 €"/><rect x="529.0" y="189" width="25.5" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Mercearia" data-linhas="Efeito do preço|3 573 €"/><text x="489.0" y="192" class="rotulo fraco fim">-4 491 €</text><text x="166" y="246" class="rotulo fim">Laticínios</text><rect x="505.7" y="226" width="23.3" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Laticínios" data-linhas="Efeito da quantidade|-3 274 €"/><rect x="529.0" y="243" width="32.7" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Laticínios" data-linhas="Efeito do preço|4 580 €"/><text x="569.7" y="246" class="rotulo fraco inicio">4 580 €</text><text x="166" y="300" class="rotulo fim">Padaria e Pastelaria</text><rect x="529.0" y="280" width="159.7" height="15" rx="3" class="barra serie-1 alvo" data-titulo="Padaria e Pastelaria" data-linhas="Efeito da quantidade|22 389 €"/><rect x="529.0" y="297" width="20.5" height="15" rx="3" class="barra serie-2 alvo" data-titulo="Padaria e Pastelaria" data-linhas="Efeito do preço|2 879 €"/><text x="696.7" y="300" class="rotulo fraco inicio">22 389 €</text></svg></div>
+<div class="legenda"><span><i class="marca s1"></i>Quantidade vendida</span><span><i class="marca s2"></i>Preço praticado</span></div>
+<details><summary>Ver a tabela e o que significa cada coluna</summary><div class="rolar"><table><thead><tr><th class="">Categoria</th><th class="num">Quantidade</th><th class="num">Preço</th><th class="num">Gama</th><th class="num">Variação total</th></tr></thead><tbody><tr><td class="">Descartáveis e Higiene</td><td class="num">-29 580 €</td><td class="num">2 105 €</td><td class="num">979 €</td><td class="num">-26 885 €</td></tr><tr><td class="">Congelados</td><td class="num">-30 253 €</td><td class="num">6 552 €</td><td class="num">8 925 €</td><td class="num">-15 393 €</td></tr><tr><td class="">Bebidas</td><td class="num">-33 939 €</td><td class="num">7 906 €</td><td class="num">20 558 €</td><td class="num">-7 131 €</td></tr><tr><td class="">Mercearia</td><td class="num">-4 491 €</td><td class="num">3 573 €</td><td class="num">-1 869 €</td><td class="num">-2 760 €</td></tr><tr><td class="">Laticínios</td><td class="num">-3 274 €</td><td class="num">4 580 €</td><td class="num">0 €</td><td class="num">1 224 €</td></tr><tr><td class="">Padaria e Pastelaria</td><td class="num">22 389 €</td><td class="num">2 879 €</td><td class="num">5 894 €</td><td class="num">31 605 €</td></tr><tr><td class=""><b>Total</b></td><td class="num"><b>-79 148 €</b></td><td class="num"><b>27 596 €</b></td><td class="num"><b>34 487 €</b></td><td class="num"><b>-19 340 €</b></td></tr></tbody></table></div><p class="nota" style="margin-top:10px;color:var(--tinta2);font-size:.82rem">A coluna <b>Gama</b> é o efeito dos produtos que entraram ou saíram do catálogo e por isso não existem nos dois períodos. As quatro colunas somam a variação total.</p></details>
+</div></section>
+<section>
+<div class="titulo-seccao"><h2>A quem ligar primeiro</h2><span class="contexto">34 clientes, 232 694 €/ano em jogo</span></div>
+<div class="cartao">
+<div class="rolar"><table><thead><tr><th class="">Cliente</th><th class="">Estado</th><th class="num">Sem comprar há</th><th class="num">Costumava comprar de</th><th class="num">Últimos 12 meses</th><th class="num">Valor anual em jogo</th></tr></thead><tbody><tr><td class=""><span class="nome-cliente">Cantinho Velho Unipessoal Lda</span></td><td class=""><span class="chip perdido"><i class="bolha"></i>Perdido</span></td><td class="num">123 dias</td><td class="num">7 dias</td><td class="num">40 115 €</td><td class="num"><b>60 172 €</b></td></tr><tr><td class=""><span class="nome-cliente">Oliveira Novo</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">69 dias</td><td class="num">25 dias</td><td class="num">9 273 €</td><td class="num"><b>15 897 €</b></td></tr><tr><td class=""><span class="nome-cliente">Praça do Norte SA</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">35 dias</td><td class="num">21 dias</td><td class="num">12 828 €</td><td class="num"><b>15 302 €</b></td></tr><tr><td class=""><span class="nome-cliente">Miradouro Velho SA</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">30 dias</td><td class="num">17 dias</td><td class="num">14 653 €</td><td class="num"><b>14 653 €</b></td></tr><tr><td class=""><span class="nome-cliente">Solar Central</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">30 dias</td><td class="num">14 dias</td><td class="num">13 876 €</td><td class="num"><b>13 876 €</b></td></tr><tr><td class=""><span class="nome-cliente">Praça Real SA</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">22 dias</td><td class="num">7 dias</td><td class="num">13 665 €</td><td class="num"><b>13 665 €</b></td></tr><tr><td class=""><span class="nome-cliente">Jardim do Norte Lda</span></td><td class=""><span class="chip perdido"><i class="bolha"></i>Perdido</span></td><td class="num">317 dias</td><td class="num">12 dias</td><td class="num">1 889 €</td><td class="num"><b>11 335 €</b></td></tr><tr><td class=""><span class="nome-cliente">Varanda da Praça Unipessoal Lda</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">21 dias</td><td class="num">10 dias</td><td class="num">7 802 €</td><td class="num"><b>7 802 €</b></td></tr><tr><td class=""><span class="nome-cliente">Solar da Vila Lda</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">102 dias</td><td class="num">36 dias</td><td class="num">2 898 €</td><td class="num"><b>6 956 €</b></td></tr><tr><td class=""><span class="nome-cliente">Pátio da Serra Lda</span></td><td class=""><span class="chip perdido"><i class="bolha"></i>Perdido</span></td><td class="num">162 dias</td><td class="num">7 dias</td><td class="num">3 528 €</td><td class="num"><b>6 048 €</b></td></tr><tr><td class=""><span class="nome-cliente">Recanto da Estrela Unipessoal Lda</span></td><td class=""><span class="chip perdido"><i class="bolha"></i>Perdido</span></td><td class="num">227 dias</td><td class="num">9 dias</td><td class="num">2 362 €</td><td class="num"><b>5 669 €</b></td></tr><tr><td class=""><span class="nome-cliente">Jardim do Vale Lda</span></td><td class=""><span class="chip abrandar"><i class="bolha"></i>A abrandar</span></td><td class="num">23 dias</td><td class="num">7 dias</td><td class="num">5 040 €</td><td class="num"><b>5 040 €</b></td></tr></tbody></table></div>
+</div>
+<p class="contexto" style="margin-top:9px;color:var(--tinta3);font-size:.8rem">O “valor anual em jogo” é o ritmo de compra que o cliente tinha enquanto comprava, limitado ao melhor ano que realmente fez. Não é uma previsão.</p>
+</section>
+<section>
+<div class="titulo-seccao"><h2>Quem mudou de comportamento</h2><span class="contexto">Últimos 3 meses vs. os mesmos 3 meses do ano anterior</span></div>
+<div class="duas lado-a-lado">
+<div class="cartao"><div style="padding:14px 12px 0 12px"><h3>Maiores quedas</h3></div><div class="rolar"><table><thead><tr><th class="">Cliente</th><th class="num">3 meses</th><th class="num">Ano anterior</th><th class="num">Diferença</th></tr></thead><tbody><tr><td class=""><span class="nome-cliente">Cantinho Velho Unipessoal Lda</span></td><td class="num">0 €</td><td class="num">22 149 €</td><td class="num"><b style="color:var(--critico-tinta)">-22 149 €</b></td></tr><tr><td class=""><span class="nome-cliente">Jardim do Norte Lda</span></td><td class="num">0 €</td><td class="num">6 482 €</td><td class="num"><b style="color:var(--critico-tinta)">-6 482 €</b></td></tr><tr><td class=""><span class="nome-cliente">Oliveira Novo</span></td><td class="num">1 254 €</td><td class="num">4 941 €</td><td class="num"><b style="color:var(--critico-tinta)">-3 687 €</b></td></tr><tr><td class=""><span class="nome-cliente">Sabor Azul</span></td><td class="num">1 207 €</td><td class="num">4 648 €</td><td class="num"><b style="color:var(--critico-tinta)">-3 442 €</b></td></tr><tr><td class=""><span class="nome-cliente">Recanto da Estrela Unipessoal Lda</span></td><td class="num">0 €</td><td class="num">2 340 €</td><td class="num"><b style="color:var(--critico-tinta)">-2 340 €</b></td></tr><tr><td class=""><span class="nome-cliente">Forno da Praça Unipessoal Lda</span></td><td class="num">0 €</td><td class="num">2 319 €</td><td class="num"><b style="color:var(--critico-tinta)">-2 319 €</b></td></tr><tr><td class=""><span class="nome-cliente">Jardim Novo Unipessoal Lda</span></td><td class="num">0 €</td><td class="num">2 220 €</td><td class="num"><b style="color:var(--critico-tinta)">-2 220 €</b></td></tr><tr><td class=""><span class="nome-cliente">Pátio da Serra Lda</span></td><td class="num">0 €</td><td class="num">2 155 €</td><td class="num"><b style="color:var(--critico-tinta)">-2 155 €</b></td></tr></tbody></table></div></div>
+<div class="cartao"><div style="padding:14px 12px 0 12px"><h3>Maiores subidas</h3></div><div class="rolar"><table><thead><tr><th class="">Cliente</th><th class="num">3 meses</th><th class="num">Ano anterior</th><th class="num">Diferença</th></tr></thead><tbody><tr><td class=""><span class="nome-cliente">Fonte Antigo SA</span></td><td class="num">28 518 €</td><td class="num">14 340 €</td><td class="num"><b style="color:var(--bom-tinta)">14 178 €</b></td></tr><tr><td class=""><span class="nome-cliente">Pátio Feliz Lda</span></td><td class="num">10 424 €</td><td class="num">3 359 €</td><td class="num"><b style="color:var(--bom-tinta)">7 065 €</b></td></tr><tr><td class=""><span class="nome-cliente">Ponte Novo</span></td><td class="num">11 061 €</td><td class="num">5 463 €</td><td class="num"><b style="color:var(--bom-tinta)">5 598 €</b></td></tr><tr><td class=""><span class="nome-cliente">Sabor da Serra Unipessoal Lda</span></td><td class="num">5 984 €</td><td class="num">3 203 €</td><td class="num"><b style="color:var(--bom-tinta)">2 781 €</b></td></tr><tr><td class=""><span class="nome-cliente">Miradouro Velho SA</span></td><td class="num">4 027 €</td><td class="num">1 787 €</td><td class="num"><b style="color:var(--bom-tinta)">2 240 €</b></td></tr><tr><td class=""><span class="nome-cliente">Alecrim do Rio SA</span></td><td class="num">7 526 €</td><td class="num">5 353 €</td><td class="num"><b style="color:var(--bom-tinta)">2 173 €</b></td></tr><tr><td class=""><span class="nome-cliente">Forno da Estrela Unipessoal Lda</span></td><td class="num">4 019 €</td><td class="num">2 156 €</td><td class="num"><b style="color:var(--bom-tinta)">1 863 €</b></td></tr><tr><td class=""><span class="nome-cliente">Fonte Azul SA</span></td><td class="num">4 941 €</td><td class="num">3 126 €</td><td class="num"><b style="color:var(--bom-tinta)">1 815 €</b></td></tr></tbody></table></div></div>
+</div></section>
+<div class="metodo"><h3>Como estes números foram apurados</h3><ul>
+<li>Fonte: ficheiros SAF-T de faturação exportados do programa certificado (DemoFact/DemoSoft). Nada foi escrito à mão.</li>
+<li>Valores líquidos de IVA. Documentos anulados excluídos e notas de crédito abatidas às vendas.</li>
+<li>As comparações são sempre com o mesmo período do ano anterior, para a sazonalidade não confundir a leitura.</li>
+<li>Um cliente entra em risco quando o tempo sem comprar passa a ser várias vezes o intervalo que ele costumava ter entre encomendas.</li>
+<li>Concentração: 22 clientes fazem metade da faturação e 60 fazem 80%, num total de 142 clientes ativos.</li>
+</ul>
+<p class="assinatura">Raio-X de vendas · gerado a partir dos ficheiros SAF-T do mês</p></div>
+</div>
+<div id="balao" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  var balao = document.getElementById('balao');
+  if (!balao) return;
+  function mostrar(e) {
+    var alvo = e.target.closest('[data-titulo]');
+    if (!alvo) return;
+    var html = '<div class="cabeca">' + alvo.dataset.titulo + '</div>';
+    (alvo.dataset.linhas || '').split('||').forEach(function (par) {
+      if (!par) return;
+      var p = par.split('|');
+      html += '<div class="par"><span>' + p[0] + '</span><b>' + (p[1] || '') + '</b></div>';
+    });
+    balao.innerHTML = html;
+    balao.style.opacity = '1';
+    posicionar(e);
+  }
+  function posicionar(e) {
+    var r = balao.getBoundingClientRect();
+    var x = e.clientX + 14, y = e.clientY + 14;
+    if (x + r.width > window.innerWidth - 8) x = e.clientX - r.width - 14;
+    if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - 14;
+    balao.style.left = Math.max(8, x) + 'px';
+    balao.style.top = Math.max(8, y) + 'px';
+  }
+  document.addEventListener('pointerover', mostrar);
+  document.addEventListener('pointermove', function (e) {
+    if (balao.style.opacity === '1' && e.target.closest('[data-titulo]')) posicionar(e);
+  });
+  document.addEventListener('pointerout', function (e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest('[data-titulo]')) {
+      balao.style.opacity = '0';
+    }
+  });
+})();
+</script>
